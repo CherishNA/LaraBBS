@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'PageController@root')->name('root');
+Route::get('/yao', 'PageController@root')->name('root');
