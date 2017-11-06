@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', 'PagesController@root')->name('root');
+Route::get('/', 'PageController@root')->name('root');
 
 //Auth:routes();
 /**
