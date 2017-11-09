@@ -16,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+//        carbnon 时间友好显示 语言设置为中文
+        \Carbon\Carbon::setLocale('zh');
     }
 
     /**
