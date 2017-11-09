@@ -21,7 +21,8 @@ class UsersController extends Controller
 
     public function update(UserRequest $request, User $user)
     {
+        dd($request->avatar);
         $user->update($request->all());
-        return redirect()->route('users.show',$user->id)->with('success', '个人信息更新成功');
+        return redirect()->route('users.show', $user->id)->with('success', '个人信息更新成功');
     }
 }

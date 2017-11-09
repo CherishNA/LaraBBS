@@ -13,7 +13,7 @@
             @include('common.error')
             <div class="panel-body">
 
-                <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8">
+                <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -32,6 +32,17 @@
                         <textarea name="introduction" id="introduction-field" class="form-control"
                                   rows="3">{{ old('introduction', $user->introduction ) }}</textarea>
                     </div>
+                    <div class="form-group">
+                        <lable for="" class="avatar-lable">用户头像</lable>
+                        <input type="file" name="avatar">
+
+                        @if($user->avatar)
+                            <br>
+                            <img src="{{$user->avatar}}" class="thumbnail img-responsive" width="200px" alt="用户头像">
+                        @endif
+                    </div>
+
+
                     <div class="well well-sm">
                         <button type="submit" class="btn btn-primary">保存</button>
                     </div>
