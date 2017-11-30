@@ -22,17 +22,15 @@ class UsersController extends Controller
 
     public function update(UserRequest $request, User $user, ImageUploadHandler $uploadHandler)
     {
-        dd($request->all());
-        return;
-//        $data = $user->update($request->all());
-//        if ($request->avatar) {
-//            $result = $uploadHandler->save($request->avatar, 'avatars', $user->id);
-//            if ($result) {
-//                $data['avatar'] = $request['path'];
-//            }
-//        }
-//        $user->update($data);
-//        return redirect()->route('users.show', $user->id)->with('success', '个人信息更新成功');
+        $data = $request->all();
+        if ($request->avatar) {
+            $result = $uploadHandler->save($request->avatar, 'avatars', $user->id, 362);
+            if ($result) {
+                $data['avatar'] = $result['path'];
+            }
+        }
+        $user->update($data);
+        return redirect()->route('users.show', $user->id)->with('success', '个人信息更新成功');
 
     }
 }

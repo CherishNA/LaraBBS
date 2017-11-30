@@ -14,7 +14,10 @@ return [
     */
 
     'name' => env('APP_NAME', 'LaraBBS'),
-
+    /*
+     * 主机端口设置
+     */
+    'hostport' => env('APP_HOSTPORT', '66'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

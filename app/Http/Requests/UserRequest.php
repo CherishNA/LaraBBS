@@ -28,7 +28,8 @@ class UserRequest extends FormRequest
             'name' =>
                 'required|between:3,25|regex:/^[A-Za-z0-9\-\_]+$/|unique:users,name,' . Auth::id(),
             'email' => 'required|email',
-            'introduction' => 'max:80'
+            'introduction' => 'max:80',
+            'avatar' => 'mimes:jpeg,bmp,png,gif|dimensions:min_width=200,min_height=200',
         ];
     }
 
@@ -39,6 +40,8 @@ class UserRequest extends FormRequest
             'name,regex' => '用户名只支持中英文，数字，横杠和下划线',
             'name.between' => '用户名长度在 3-25个之间',
             'name.required' => '用户名不能为空',
+            //图片message
+            'avatar.dimensions'=>'图片不够清晰,宽和高需要大于200px'
         ];
     }
 }
